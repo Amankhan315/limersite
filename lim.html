@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>limer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .mainbar {
+            height: 7vh;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 12% 78% 10%;
+            grid-template-rows: 40px 10px;
+            padding-left: 5px;
+            padding-top: 5px;
+            background-color: rgb(38, 38, 38);
+            /* border: 1px solid; */
+        }
+
+        .smallbox {
+            /* height: 6vh;
+            width: 15%; */
+            /* border: 1px solid; */
+        }
+
+        .img1 {
+            height: 100%;
+            width: 100%;
+        }
+
+        .button1 {
+            height: 6vh;
+            width: 80%;
+            border-radius: 5px;
+            background-color: rgb(130, 180, 64);
+            color: white;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            font-weight: bolder;
+            border: none;
+        }
+
+        .parent1 {
+            height: auto;
+            width: 100%;
+            /* border: 1px solid yellow; */
+        }
+
+        .mainbar2 {
+            height: 20vh;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 15% 64% 20%;
+            grid-template-rows: 60px 60px 60px;
+            padding-left: 40px;
+            padding-top: 40px;
+            /* border: 1px solid; */
+        }
+
+        .smallbox2 {
+            display: grid;
+            grid-template-columns: 15% 15% 15% 15% 15%;
+            grid-template-rows: 40px;
+            padding-left: 10px;
+            padding-top: 8px;
+            gap: 10px;
+            /* border: 1px solid; */
+        }
+
+        .img2 {
+            height: 100%;
+            /* width: 100%; */
+        }
+
+        .iconboxes {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* border: 1px solid; */
+        }
+
+        .bars:hover {
+            color: rgb(255, 50, 114);
+            cursor: pointer;
+        }
+
+        .parent2 {
+            height: auto;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 25% 25% 25% 25%;
+            grid-template-rows: 300px 300px 300px 300px 300px;
+            /* border: 1px solid red; */
+        }
+
+        .picsbox {
+
+            position: relative;
+            overflow: hidden;
+            /* border: 1px solid; */
+        }
+
+        .box1 {
+            grid-column-start: 1;
+            grid-column-end: 3;
+
+            grid-row-start: 1;
+            grid-row-end: 3;
+
+        }
+
+        .img3 {
+            height: 100%;
+            width: 100%;
+            transform: scale(1);
+            transition: all 0.5s;
+
+
+        }
+
+        .picsbox:hover .img3 {
+            transform: rotate(2deg) scale(1.1);
+            cursor: pointer;
+
+
+        }
+
+        .box4 {
+            height: 15vh;
+            width: 60%;
+            left: 20%;
+            top: 340px;
+            position: absolute;
+            /* border: 1px solid red; */
+        }
+
+        .text4 {
+            padding-top: 20px;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 50px;
+            font-weight: bolder;
+            color: white;
+            transition: 1s;
+        }
+
+        .text4:hover {
+            color: rgb(255, 50, 113);
+            cursor: pointer;
+        }
+
+        .button2 {
+            height: 10vh;
+            width: 28%;
+            left: 20%;
+            top: 450px;
+            border-radius: 50px;
+            position: absolute;
+            background-color: rgb(255, 50, 113);
+            border: none;
+            color: white;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            font-weight: bolder;
+            transition: 1s;
+
+        }
+
+        .button2:hover {
+            background-color: transparent;
+            border: 1px solid rgb(255, 50, 113);
+            color: rgb(255, 50, 113);
+            cursor: pointer;
+        }
+
+        .picsbox2 {
+            position: relative;
+            overflow: hidden;
+            /* border: 1px solid; */
+        }
+
+        .picsbox2:hover .img3 {
+            transform: rotate(2deg) scale(1.1);
+            cursor: pointer;
+
+
+        }
+
+        .picsbox2::after {
+            height: 80px;
+            width: 168px;
+            content: "";
+            left: -50%;
+            top: 120px;
+            position: absolute;
+            background-color: rgb(255, 50, 114);
+            /* border: 1px solid red; */
+            transition: all linear 0.4s;
+        }
+
+        .picsbox2:hover::after {
+            left: 0;
+        }
+
+        .picsbox2::before {
+            height: 80px;
+            width: 167px;
+            content: "";
+            right: -50%;
+            top: 120px;
+            position: absolute;
+            z-index: 2;
+            background-color: rgba(0, 0, 0, 0.842);
+            /* border: 1px solid red; */
+            transition: all linear 0.4s;
+        }
+
+        .picsbox2:hover::before {
+            right: 0;
+        }
+
+        .upbox {
+            height: 10vh;
+            width: 60%;
+            left: 20%;
+            top: 180px;
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            /* background-color: palevioletred; */
+            transition: all linear 0.4s;
+            z-index: 2;
+            opacity: 0;
+            /* border: 1px solid; */
+        }
+
+        .picsbox2:hover .upbox {
+            top: 130px;
+            opacity: 1;
+        }
+
+        .picsbox5 {
+            position: relative;
+            overflow: hidden;
+            /* border: 1px solid; */
+        }
+
+        .picsbox5::after {
+            height: 80px;
+            width: 334px;
+            content: "";
+            left: -50%;
+            top: 120px;
+            position: absolute;
+            background-color: rgb(255, 50, 114);
+            /* border: 1px solid red; */
+            transition: all linear 0.4s;
+        }
+
+        .picsbox5:hover::after {
+            left: 0;
+        }
+
+        .picsbox5::before {
+            height: 80px;
+            width: 334px;
+            content: "";
+            right: -50%;
+            top: 120px;
+            position: absolute;
+            z-index: 2;
+            background-color: rgba(0, 0, 0, 0.842);
+            /* border: 1px solid red; */
+            transition: all linear 0.4s;
+        }
+
+        .picsbox5:hover::before {
+            right: 0;
+        }
+
+        .picsbox5:hover .upbox {
+            top: 130px;
+            opacity: 1;
+        }
+
+        .box5 {
+            height: 7vh;
+            width: 25%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+            border-radius: 10px;
+            transition: all linear 0.4s;
+            /* border: 1px solid blue; */
+
+
+
+        }
+
+        .link:hover {
+            color: white;
+            cursor: pointer;
+        }
+
+        .box5:hover {
+            color: white;
+            background-color: black;
+            cursor: pointer;
+        }
+
+        .box6 {
+            height: 7vh;
+            width: 12%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+            border-radius: 10px;
+            transition: all linear 0.4s;
+            /* border: 1px solid blue; */
+
+
+
+        }
+
+        .box6:hover {
+            color: white;
+            background-color: black;
+            cursor: pointer;
+        }
+
+
+
+        .picsbox3 {
+
+            overflow: hidden;
+            position: relative;
+            /* border: 1px solid; */
+
+        }
+
+        .textbox3 {
+            height: 15vh;
+            width: 90%;
+            left: 5%;
+            top: 80px;
+            position: absolute;
+            /* border: 1px solid white; */
+        }
+
+        .text5 {
+            text-align: center;
+            padding-top: 15px;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 60px;
+            font-weight: bolder;
+            color: white;
+        }
+
+        .textbox4 {
+            height: 6vh;
+            width: 50%;
+            display: flex;
+            align-items: center;
+            left: 5%;
+            top: 15px;
+            position: absolute;
+            /* border: 1px solid black; */
+
+        }
+
+        .text6 {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 20px;
+            font-weight: lighter;
+            color: white;
+        }
+
+        .textbox5 {
+            height: 35vh;
+            width: 90%;
+            left: 5%;
+            top: 58px;
+            position: absolute;
+            /* border: 1px solid white; */
+        }
+
+        .whitebox2 {
+            height: 8vh;
+            width: 18%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+            /* border: 1px solid white; */
+        }
+
+        .text7 {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 50px;
+            font-weight: bolder;
+            color: rgb(172, 96, 255);
+        }
+
+        .para3 {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 28px;
+            font-weight: bolder;
+            color: white;
+        }
+
+        .button3 {
+            height: 9vh;
+            width: 50%;
+            left: 30%;
+            top: 190px;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 16px;
+            font-weight: bolder;
+            position: absolute;
+            border-radius: 100px;
+            background-color: rgb(209, 140, 253);
+            border: none;
+            color: white;
+            cursor: pointer;
+
+
+        }
+
+        .text8 {
+            text-align: center;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 55px;
+            font-weight: bolder;
+        }
+
+        .iconboxes4 {
+            height: 10vh;
+            width: 22%;
+            left: 35%;
+            top: 16px;
+            position: absolute;
+            /* border: 1px solid white; */
+        }
+
+        .img5 {
+            height: 100%;
+            width: 100%;
+            filter: invert(20%) sepia(98%) saturate(1205%) hue-rotate(283deg) brightness(92%) contrast(96%);
+
+        }
+        .text9{
+            text-align: center;
+            padding-top: 20px;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 55px;
+            font-weight: bolder;
+            color: white;
+        }
+
+
+
+
+
+
+        .picsbox3:hover .img3 {
+            transform: rotate(2deg) scale(1.1);
+            cursor: pointer;
+
+
+        }
+
+
+        .picsbox4 {
+            overflow: hidden;
+            position: relative;
+            /* border: 1px solid; */
+        }
+
+        .picsbox4:hover .img3 {
+            transform: rotate(2deg) scale(1.1);
+            cursor: pointer;
+
+
+        }
+
+        .whitebox {
+            height: 45vh;
+            width: 90%;
+            left: 10%;
+            top: 60px;
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+            /* border: 1px solid red; */
+        }
+
+        .bigbox {
+            height: 35vh;
+            width: 90%;
+            /* border: 1px solid; */
+
+        }
+
+        .iconboxes2 {
+            height: 5vh;
+            width: 7%;
+            margin-left: 2%;
+            margin-top: 20px;
+            /* border: 1px solid; */
+        }
+
+        .img4 {
+            height: 100%;
+            width: 100%;
+        }
+
+        .textbox {
+            height: 15vh;
+            width: 80%;
+            display: flex;
+            align-items: center;
+            margin-left: 10%;
+            /* border: 1px solid; */
+        }
+
+        .text2 {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 25px;
+            font-weight: bolder;
+        }
+
+        .textbox2 {
+            height: 7vh;
+            width: 30%;
+            display: flex;
+            justify-content: end;
+            margin-left: 60%;
+            margin-top: 20px;
+            /* border: 1px solid; */
+        }
+
+        .text3 {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 20px;
+            font-weight: lighter;
+        }
+
+        .box2 {
+            grid-column-start: 3;
+            grid-column-end: 5;
+        }
+
+        .box3 {
+            grid-column-start: 1;
+            grid-column-end: 3;
+        }
+
+        .parent3 {
+            height: 30vh;
+            width: 40%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin: auto;
+            margin-top: 150px;
+            /* border: 1px solid; */
+        }
+
+        .logobox2 {
+            height: 9vh;
+            width: 40%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* border: 1px solid; */
+        }
+
+        .lasttext {
+            height: 6vh;
+            width: 60%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* border: 1px solid; */
+        }
+
+        .para2 {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 15px;
+        }
+
+        .longbox {
+            height: 8vh;
+            width: 40%;
+            display: flex;
+            justify-content: space-around;
+            /* border: 1px solid; */
+        }
+
+        .iconboxes3 {
+            height: 5vh;
+            width: 15%;
+            display: flex;
+            justify-content: center;
+            /* border: 1px solid; */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="mainbar">
+        <div class="smallbox">
+            <img class="img1" src="envato_market-dde916a48af7413e54aa058fe7ae6856752fca799da4bec355f00aea904bfa19.svg"
+                alt="">
+        </div>
+        <div class="smallbox"></div>
+        <div class="smallbox">
+            <button class="button1">Buy now</button>
+        </div>
+    </div>
+    <div class="parent1">
+        <div class="mainbar2">
+            <div class="smallbox2">
+                <img class="img2" src="logo.png" alt="">
+            </div>
+            <div class="smallbox2"></div>
+            <div class="smallbox2">
+                <div class="iconboxes">
+                    <i class="fa-solid fa-bars bars"></i>
+                </div>
+                <div class="iconboxes">
+                    <i class="fa-brands fa-facebook-f bars"></i>
+                </div>
+                <div class="iconboxes">
+                    <i class="fa-brands fa-twitter bars"></i>
+                </div>
+                <div class="iconboxes">
+                    <i class="fa-brands fa-google-plus-g bars"></i>
+                </div>
+                <div class="iconboxes">
+                    <i class="fa-brands fa-square-pinterest bars"></i>
+                </div>
+            </div>
+        </div>
+        <div class="parent2">
+            <div class="picsbox box1">
+                <img class="img3" src="http://t.commonsupport.xyz/limerick/images/gallery/1.jpg" alt="">
+                <div class="box4">
+                    <h1 class="text4">
+                        Paper Lost Boat</h1>
+                </div>
+                <button class="button2">READ MORE +</button>
+            </div>
+            <div class="picsbox2">
+                <img class="img3" src="http://t.commonsupport.xyz/limerick/images/gallery/2.jpg" alt="">
+                <div class="upbox">
+                    <div class="box5">
+                        <i class="fa-solid fa-link link"></i>
+                    </div>
+                    <div class="box5">
+                        <i class="fa-solid fa-magnifying-glass link"></i>
+                    </div>
+                </div>
+
+            </div>
+            <div class="picsbox3">
+                <img class="img3" src="http://t.commonsupport.xyz/limerick/images/gallery/3.jpg" alt="">
+                <div class="textbox3">
+                    <h2 class="text5">About Us</h2>
+                </div>
+            </div>
+            <div class="picsbox2">
+                <img class="img3" src="http://t.commonsupport.xyz/limerick/images/gallery/4.jpg" alt="">
+                <div class="upbox">
+                    <div class="box5">
+                        <i class="fa-solid fa-link link"></i>
+                    </div>
+                    <div class="box5">
+                        <i class="fa-solid fa-magnifying-glass link"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="picsbox2">
+                <img class="img3" src="http://t.commonsupport.xyz/limerick/images/gallery/5.jpg" alt="">
+                <div class="upbox">
+                    <div class="box5">
+                        <i class="fa-solid fa-link link"></i>
+                    </div>
+                    <div class="box5">
+                        <i class="fa-solid fa-magnifying-glass link"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="picsbox2">
+                <img class="img3" src="http://t.commonsupport.xyz/limerick/images/gallery/6.jpg" alt="">
+                <div class="upbox">
+                    <div class="box5">
+                        <i class="fa-solid fa-link link"></i>
+                    </div>
+                    <div class="box5">
+                        <i class="fa-solid fa-magnifying-glass link"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="picsbox3">
+                <img class="img3" src="http://t.commonsupport.xyz/limerick/images/gallery/7.jpg" alt="">
+                <div class="textbox4">
+                    <h3 class="text6">We Are Branding</h3>
+                </div>
+                <div class="textbox5">
+                    <div class="whitebox2">
+                        <h1 class="text7">c</h1>
+                    </div>
+                    <p class="para3">heck out all my awesome art work. Our Amazing Portfolio Capitalize on low the
+                        hanging fruit to tify</p>
+                </div>
+            </div>
+            <div class="picsbox5 box2">
+                <img class="img3" src="http://t.commonsupport.xyz/limerick/images/gallery/8.jpg" alt="">
+                <div class="upbox">
+                    <div class="box6">
+                        <i class="fa-solid fa-link link"></i>
+                    </div>
+                    <div class="box6">
+                        <i class="fa-solid fa-magnifying-glass link"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="picsbox5 box3">
+                <img class="img3" src="http://t.commonsupport.xyz/limerick/images/gallery/10.jpg" alt="">
+                <div class="upbox">
+                    <div class="box6">
+                        <i class="fa-solid fa-link link"></i>
+                    </div>
+                    <div class="box6">
+                        <i class="fa-solid fa-magnifying-glass link"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="picsbox2">
+                <img class="img3" src="http://t.commonsupport.xyz/limerick/images/gallery/9.jpg" alt="">
+                <div class="upbox">
+                    <div class="box5">
+                        <i class="fa-solid fa-link link"></i>
+                    </div>
+                    <div class="box5">
+                        <i class="fa-solid fa-magnifying-glass link"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="picsbox3">
+                <img class="img3" src="http://t.commonsupport.xyz/limerick/images/gallery/11.jpg" alt="">
+                <div class="textbox3">
+                    <h1 class="text8">Meet Team</h1>
+                </div>
+                <button class="button3">SEE TEAM +</button>
+            </div>
+            <div class="picsbox2">
+                <img class="img3" src="http://t.commonsupport.xyz/limerick/images/gallery/12.jpg" alt="">
+                <div class="upbox">
+                    <div class="box5">
+                        <i class="fa-solid fa-link link"></i>
+                    </div>
+                    <div class="box5">
+                        <i class="fa-solid fa-magnifying-glass link"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="picsbox3">
+                <img class="img3" src="http://t.commonsupport.xyz/limerick/images/gallery/13.jpg" alt="">
+                <div class="iconboxes4">
+                    <img class="img5" src="speaker (1).png" alt="">
+                </div>
+                <div class="textbox3">
+                    <h1 class="text9">Contact
+                    </h1>
+                </div>
+            </div>
+            <div class="picsbox4 box2">
+                <img class="img3" src="http://t.commonsupport.xyz/limerick/images/gallery/14.jpg" alt="">
+                <div class="whitebox">
+                    <div class="bigbox">
+                        <div class="iconboxes2">
+                            <img class="img4" src="left-quote.png" alt="">
+                        </div>
+                        <div class="textbox">
+                            <h1 class="text2">Leverage agile frameworks to the
+                                provide a robust synopsis for high</h1>
+                        </div>
+                        <div class="textbox2">
+                            <h2 class="text3">-; John Doue</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        </div>
+        <div class="parent3">
+            <div class="logobox2">
+                <img src="http://t.commonsupport.xyz/limerick/images/footer-logo.png" alt="">
+            </div>
+            <div class="lasttext">
+                <p class="para2">© Copyright 2019 Limerick. All Rights Reserved</p>
+            </div>
+            <div class="longbox">
+                <div class="iconboxes3">
+                    <i class="fa-solid fa-bars bars"></i>
+                </div>
+                <div class="iconboxes3">
+                    <i class="fa-brands fa-facebook-f bars"></i>
+                </div>
+                <div class="iconboxes3">
+                    <i class="fa-brands fa-twitter bars"></i>
+                </div>
+                <div class="iconboxes3">
+                    <i class="fa-brands fa-google-plus-g bars"></i>
+                </div>
+                <div class="iconboxes3">
+                    <i class="fa-solid fa-globe bars"></i>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
